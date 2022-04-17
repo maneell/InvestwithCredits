@@ -1,0 +1,59 @@
+
+# Online Python - IDE, Editor, Compiler, Interpreter
+
+#def sum(a, b):
+#    return (a + b)
+
+#a = int(input('Enter 1st number: '))
+#b = int(input('Enter 2nd number: '))
+
+#print(f'Sum of {a} and {b} is {sum(a, b)}')
+ausbetrag = 0;
+monate=0;
+tage=0;
+kosten = 0;
+bondora_gewinn = 0;
+
+#Auszahlungsphase
+while monate < 24:
+    ausbetrag = ausbetrag + 650 - 2.12 * monate;
+    kosten += 2.12 * monate;
+    
+    while tage < 30:
+        bondora_gewinn += ausbetrag*0.065/365
+        ausbetrag = ausbetrag + ausbetrag*0.065/365
+        tage+=1
+    tage=0;
+    monate +=1;
+
+#Karenzphase
+while monate < 47:
+    ausbetrag = ausbetrag - 50.83
+    kosten += 50.83
+    
+    while tage < 30:
+        bondora_gewinn += ausbetrag*0.065/365
+        ausbetrag = ausbetrag + ausbetrag* 0.065/365
+        tage += 1
+        
+    tage=0
+    monate+=1
+    
+#Tilgunsphase
+while monate < 347:
+    ausbetrag = ausbetrag - 81.57
+    kosten += 81.57
+    
+    while tage < 30:
+        bondora_gewinn += ausbetrag*0.065/365
+        ausbetrag = ausbetrag + ausbetrag* 0.065/365
+        tage += 1
+        
+    tage=0
+    monate+=1
+    
+    
+
+print("Kosten: ", kosten)
+print("bondora_gewinn: ", bondora_gewinn)
+print("Vermögen: ", ausbetrag);
